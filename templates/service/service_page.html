@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} home {% endblock %}
+
+{% block content %}
+
+    <div class="container" id="presentation">
+        <div class="" style="margin-top: 70px; margin-bottom: 70px; font-size: 20px;">
+            Welcome to Endless Development Solutions Consulting (EDSC).
+            <p>
+                Founded in Maryland, USA, Endless Development Solutions Consulting (EDSC), has a team of experts,
+                with extensive international development experience, that provide solutions for international development
+                challenges.
+            </p>
+            <p>
+                Areas of focus include, Health, Education, Finance (Public and Private sectors), Governance, Monitoring and
+                Evaluation. Training and capacity building are in-built in all the above areas.
+            </p>
+            <p>
+                The experience of our team extends to many international development partners including, USAID, The World
+                Bank, PEPFAR, PMI, UK NHS, EU, Inter-American Development Bank, African Development Bank, WHO, and the
+                Global Fund for HIV, Malaria and Tuberculosis, among others.
+            </p>
+        </div>
+    </div>
+
+    <section class="container" style="margin-bottom: 300px; font-size: 20px;">
+        {% for service in services %}
+            <div class="card text-white bg-secondary mb-3" style=" ">
+                <div class="card-header"> <b>{{ service.title }}</b> </div>
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">{{ service.description }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+
+{% endblock %}

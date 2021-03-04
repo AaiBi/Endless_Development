@@ -8,6 +8,80 @@
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+        <style>
+            #about{
+                position: relative;
+                animation-name: example1;
+                animation-duration: 4s;
+                animation-fill-mode: forwards;
+            }
+            @keyframes example1 {
+                from {right: -500px; background-color: #0b5345;}
+                to {right: 0px; background-color: #7b241c;}
+            }
+            #mission{
+                position: relative;
+                animation-name: example2;
+                animation-duration: 4s;
+                animation-fill-mode: forwards;
+            }
+            @keyframes example2 {
+              from {left: -500px; background-color: #7b241c;}
+              to {left: 0px; background-color: #d35400;}
+            }
+            #values{
+                position: relative;
+                animation-name: example3;
+                animation-duration: 4s;
+                animation-fill-mode: forwards;
+            }
+            @keyframes example3 {
+              from {right: -500px; background-color: #d35400;}
+              to {right: 0px; background-color: #0b5345;}
+            }
+            .card{
+                position: relative;
+                animation-name: example4;
+                animation-duration: 4s;
+                animation-fill-mode: forwards;
+            }
+            @keyframes example4 {
+              from {right: -500px;;}
+              to {right: 0px;}
+            }
+            #presentation{
+                position: relative;
+                animation-name: example5;
+                animation-duration: 4s;
+                animation-fill-mode: forwards;
+            }
+            @keyframes example5 {
+              from {left: -500px;}
+              to {left: 0px;}
+            }
+            .card{
+                box-shadow: 10px 10px grey;
+            }
+            .card .card-body:hover {
+               background-color: #1f618d;
+            }
+            .card .card-header:hover {
+               background-color: #1f618d;
+            }
+            .list-group .list-group-item:hover {
+               background-color: #212f3c;
+               color: white;
+            }
+            nav .nav-item{
+                animation-timing-function: ease-in-out;
+                animation: [animation-name] [animation-duration] [animation-timing-function];
+                animation: bounceIn 2s ease-in-out;
+            }
+        </style>
         {% load static %}
         <title>
             {% block title %}
@@ -16,29 +90,128 @@
         </title>
     </head>
     <body>
-
         <!--Menu-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    <img src="http://127.0.0.1:8000/media/blog/images/logo.png" class="img-fluid" alt="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{% url 'home' %}" style="color:white">Home</a>
+                        <li type="button" class="nav-item btn" style="border-radius:20px; background-color: #1f618d;">
+                            <a class="nav-link active" aria-current="page" href="{% url 'home' %}" style="color:white">
+                                <b>Home</b>
+                            </a>
+                        </li>
+                        <li type="button" class="nav-item btn" style="border-radius:20px; background-color: #1f618d;">
+                            <a class="nav-link" href="{% url 'home' %}#about" style="color:white">
+                                <b>About Us</b>
+                            </a>
+                        </li>
+                        <li type="button" class="nav-item btn" style="border-radius:20px; background-color: #1f618d;">
+                            <a class="nav-link" href="{% url 'home' %}#mission" style="color:white">
+                                <b>Mission</b>
+                            </a>
+                        </li>
+                        <li type="button" class="nav-item btn" style="border-radius:20px; background-color: #1f618d;">
+                            <a class="nav-link" href="{% url 'service_page' %}" style="color:white">
+                                <b>Services</b>
+                            </a>
+                        </li>
+                        <li type="button" class="nav-item btn" style="border-radius:20px; background-color: #1f618d;">
+                            <a class="nav-link" href="{% url 'home' %}#values" style="color:white">
+                                <b>Values</b>
+                            </a>
+                        </li>
+                        <li type="button" class="nav-item btn" style="border-radius:20px; background-color: #1f618d;">
+                            <a class="nav-link" href="{% url 'home' %}#contact" style="color:white">
+                                <b>Contact</b>
+                            </a>
                         </li>
                     </ul>
                 </div>
-              </div>
+<!--                <h5>Experts in International Development: Health, Education, Finance, Governance, Minotoring & Evaluation</h5>-->
+            </div>
         </nav>
         <!--end menu-->
 
         <!--Content-->
-        <div class="container" style="margin-top: 50px">
-            <div class="row">
-                {% block content %}
-                {% endblock %}
+        {% block content %}
+        {% endblock %}
+        <!--end content-->
+
+        <!--Footer-->
+        <div class="container-fluid" style="background-color: #212f3c"></br>
+            <center>
+                <h1> <b style="color: white">Endless Development Solutions Consulting</b> </h1>
+            </center></br></br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-2" style="margin-bottom: 50px;">
+                        <center>
+                            <h3><b style="color: #1f618d">MENU</b></h3>
+                        </center></br>
+                        <div class="list-group">
+                            <a href="{% url 'home' %}" class="list-group-item list-group-item-action">
+                                Home
+                            </a>
+                            <a href="{% url 'home' %}#about" class="list-group-item list-group-item-action">About</a>
+                            <a href="#" class="list-group-item list-group-item-action">Services</a>
+                            <a href="{% url 'home' %}#contact" class="list-group-item list-group-item-action">Contact</a>
+                            <a href="{% url 'home' %}#values" class="list-group-item list-group-item-action">Values</a>
+                            <a href="{% url 'home' %}#mission" class="list-group-item list-group-item-action">Mission</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <center>
+                            <h3><b style="color: #1f618d">CONTACT INFO</b></h3>
+                        </center></br>
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div id="wrapper-9cd199b9cc5410cd3b1ad21cab2e54d3">
+                                    <div id="map-9cd199b9cc5410cd3b1ad21cab2e54d3"></div>
+                                    <script>(function () {
+                                            var setting = {"height":380,"width":792,"zoom":17,"queryString":"13404 Rippling Brook Drive, Silver Spring, MD 20906, USA","place_id":"ChIJfR0UVjTOt4kRn24-eJJ9asw","satellite":false,"centerCoord":[39.075982312894524,-77.0592103],"cid":"0xcc6a7d92783e6e9f","lang":"fr","cityUrl":"/us/dc/washington","cityAnchorText":"Carte de Washington, District of Columbia, États-Unis","id":"map-9cd199b9cc5410cd3b1ad21cab2e54d3","embed_id":"408079"};
+                                            var d = document;
+                                            var s = d.createElement('script');
+                                            s.src = 'https://1map.com/js/script-for-user.js?embed_id=408079';
+                                            s.async = true;
+                                            s.onload = function (e) {
+                                              window.OneMap.initMap(setting)
+                                            };
+                                            var to = d.getElementsByTagName('script')[0];
+                                            to.parentNode.insertBefore(s, to);
+                                        })();
+                                    </script>
+                                    <a href="https://1map.com/fr/map-embed">1 Map</a>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <p style="color:white">
+                                    Endless Development Solutions Consulting (EDSC),
+                                    13404 Rippling Brook Drive, Silver Spring, MD 20906, USA.
+                                </p>
+                                <p style="color:white">
+                                    <b>Phone</b>: +1 301-8711032</br>
+                                    <b>Email</b>: info@endless-development.com</br>
+                                    <b>Website</b>: <a target="_blank" href="https://endless-development.com/">endless-development.com</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div></br></br></br>
+                <center style="color:white; font-size: 25px;">
+                    Copyright © 2021, All Right Reserved
+                    (Created by <b>Ibrahima Ba</b> -
+                    <a target="_blank" href="https://ibrahima.pythonanywhere.com/">My Portfolio</a>)
+                </center>
             </div>
         </div>
-        <!--end content-->
+        <!--end footer-->
 
         <!-- Optional JavaScript; choose one of the two! -->
 
